@@ -17,6 +17,7 @@
 .result-item p {
     font-size: 16px;
     margin-bottom: 10px;
+    text-align: justify;
 }
 
 .result-item ul {
@@ -31,12 +32,12 @@
 
 .result-item a {
     text-decoration: none;
-    color: #0077cc;
+    color: #b60e4e;
     transition: color 0.3s ease;
 }
 
 .result-item a:hover {
-    color: #005599;
+    color: #d8006d;
 }
 
 .footer {
