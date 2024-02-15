@@ -49,7 +49,7 @@ function processData(_0x4610e5) {
   sessionStorage.setItem('cves', JSON.stringify(_0x42a8ff))
   if (searchInput.value.trim() === '') {
     const currentDate = new Date().toISOString().split('T')[0];
-    searchCves(currentDate + ' CVE');
+    searchCves('2023-12-04' + ' CVE');
   }
 }
 function buildCVEHashTable(_0x463239) {
