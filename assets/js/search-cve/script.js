@@ -84,7 +84,7 @@ function searchCves(_0x5d655b) {
     }
     const _0x375360 = _0x3452c7.length
     var _0x1c3bd7 = document.createElement('p')
-    _0x1c3bd7.textContent = 'Found ' + _0x375360 + ' result'
+    _0x1c3bd7.textContent = 'Found ' + _0x375360 + ' result for' + _0x5d655b
     _0x119e82.appendChild(_0x1c3bd7)
     for (const _0xd7bd98 of _0x3452c7) {
       const _0x262311 = _0xd7bd98.links
@@ -116,12 +116,12 @@ function searchCves(_0x5d655b) {
     var searchInput = document.getElementById('search');
     searchInput.addEventListener('keydown', function (_0x4feb3a) {
       if (_0x4feb3a.key === 'Enter') {
-        if (this.value.trim() !== '') {
+        if (this.value.trim() !== '' && this.value.length > 5) {
           searchCves(this.value.trim());
-        } else {
-          // Default search with current date + CVE
-          const currentDate = new Date().toISOString().split('T')[0];
-          searchCves('2023-12-05');
         }
+      } else {
+        const currentDate = new Date().toISOString().split('T')[0];
+        searchCves(currentDate);
       }
     });
+
