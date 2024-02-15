@@ -114,7 +114,7 @@ function searchCves(_0x5d655b) {
     (searchForm.style.display = 'block'))
 
     const currentDate = new Date().toISOString().split('T')[0];
-    searchCves(currentDate);
+    searchCves('Today: ' + currentDate);
     
     var searchInput = document.getElementById('search');
     searchInput.addEventListener('keydown', function (_0x4feb3a) {
