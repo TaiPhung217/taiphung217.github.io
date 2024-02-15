@@ -47,10 +47,7 @@ function processData(_0x4610e5) {
     }
   }
   sessionStorage.setItem('cves', JSON.stringify(_0x42a8ff))
-  if (searchInput.value.trim() === '') {
-    const currentDate = new Date().toISOString().split('T')[0];
-    searchCves('2023-12-04' + ' CVE');
-  }
+  searchInput.value.trim() !== '' && searchCves(searchInput.value.trim())
 }
 function buildCVEHashTable(_0x463239) {
   const _0x2909ea = {}
@@ -115,10 +112,16 @@ function searchCves(_0x5d655b) {
   ? fetchData()
   : ((loadingElement.style.display = 'none'),
     (searchForm.style.display = 'block'))
-var searchInput = document.getElementById('search')
-searchInput.addEventListener('keydown', function (_0x4feb3a) {
-  _0x4feb3a.key === 'Enter' &&
-    (this.value.length > 5
-      ? searchCves(this.value.trim())
-      : console.log('chuỗi tìm kiếm quá ngắn'))
-})
+    
+    var searchInput = document.getElementById('search');
+    searchInput.addEventListener('keydown', function (_0x4feb3a) {
+      if (_0x4feb3a.key === 'Enter') {
+        if (this.value.trim() !== '') {
+          searchCves(this.value.trim());
+        } else {
+          // Default search with current date + CVE
+          const currentDate = new Date().toISOString().split('T')[0];
+          searchCves('2023-12-05');
+        }
+      }
+    });
