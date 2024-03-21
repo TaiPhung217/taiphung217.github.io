@@ -297,5 +297,5 @@ defaults:
       related: true
       toc: true
       toc_label: "Content list"
-      toc_icon: "grav"
+      toc_icon: "fa-grav"
       toc_sticky: true
