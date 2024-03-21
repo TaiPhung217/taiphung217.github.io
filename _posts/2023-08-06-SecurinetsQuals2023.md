@@ -1,6 +1,5 @@
 ---
 title: "Securinets CTF Quals 2023 - webx1"
-layout: single
 excerpt: "📅 Time: Sunday, August 6, 2023, 01:00 ICT — Monday, August 7, 2023, 01:00 ICT (~GMT +7)
 💻 Official URL: https://ctf.securinets.tn"
 header:

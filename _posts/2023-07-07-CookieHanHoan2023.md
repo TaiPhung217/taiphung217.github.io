@@ -1,6 +1,5 @@
 ---
 title: "CookieArena Session2 2023"
-layout: single
 excerpt: "📅 START DATE Fri, Jul 7 2023, 14:00 | END DATE Sun, Jul 9 2023, 16:59. 💻 Rate weight: medium ✅ Cookie Arena CTF Season II: Crack The Code, Claim The Crown is a contest for those who have a passion for Security, Programming and Hacking. The competition was born to create a playground to find young talents and hope to bring innovation to the CTF competition experience."
 header:
 show_date: true
