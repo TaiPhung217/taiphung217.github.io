@@ -20,7 +20,6 @@ tags:
 Prototype pollution là một lỗ hổng Javascript cho phép kẻ tấn công thêm các thuộc tính tùy ý vào các đối tượng prototype chung, sau đó có thể được kế thừa bởi các đối tượng do người dùng xác định.
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-learn/Learn-2021-05-21-Prototype-poluttion/By2RxKXh2.png)
-{: .full}
 
 Mặc dù `prototype pollution` thường không thể khai thác được như một lỗ hổng độc lập, nhưng nó cho phép kẻ tấn công kiểm soát các thuộc tính của các đối tượng mà thông thường sẽ không thể truy cập được. 
 
@@ -103,7 +102,6 @@ Nếu đối tượng không có thuộc tính phù hợp, công cụ Javascript
 Với các đối tượng sau, `myObject.propertyA` cho phép tham chiếu:
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-learn/Learn-2021-05-21-Prototype-poluttion/BJwxrodhn.png)
-{: .full}
 
 Bạn có thể sử dụng `console` trình duyệt của mình để xem hành vi này đang hoạt động. Đầu tiên, tạo một đối tượng hoàn toàn trống rỗng:
 
@@ -114,7 +112,6 @@ let myObject = {};
 Tiếp theo, nhập `myObject` cùng với dấu chấm. Lưu ý rằng bảng điều khiển sẽ nhắc bạn chọn từ danh sách các thuộc tính và phương thức:
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-learn/Learn-2021-05-21-Prototype-poluttion/B1K_rodh2.png)
-{: .full}
 
 
 Mặc dù không có thuộc tính hoặc phương thức nào được xác định cho chính đối tượng, nhưng nó đã kế thừa một số thuộc tính hoặc phương thức tích hợp sẵn `Object.prototype`.
@@ -129,7 +126,6 @@ Vì vậy hầu như mọi thứ trong Javascript đều là một `Object`.
 chuỗi `Object.prototype` là đối tượng cấp cao nhất và nguyên mẫu là null.
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-learn/Learn-2021-05-21-Prototype-poluttion/B1qNLju2h.png)
-{: .full}
 
 Điều quan trọng là các Object kế thừa các thuộc tính không chỉ từ nguyên mẫu trực tiếp của chúng mà còn từ tất cả các đối tượng phía trên chúng trong `prototype chain`
 {: .notice--info}
