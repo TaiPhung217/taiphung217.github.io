@@ -4,7 +4,6 @@ excerpt: "📅 Time: Sunday, August 6, 2023, 01:00 ICT — Monday, August 7, 202
 💻 Official URL: https://ctf.securinets.tn"
 header:
 show_date: true
-classes: wide
 header:
   teaser: "https://hackmd.io/_uploads/SyrwTwfRh.png"
   teaser_home_page: true
