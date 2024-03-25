@@ -15,10 +15,6 @@ tags:
   - English
 ---
 
-<p align="center">
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-14-03-HTB-cyber-apocalypse-2024/teaser.png">{% endraw %}
-</p>
-
 # Result
 
 My college team achieved `22nd` rank with a total score of `18850`.
