@@ -1,5 +1,5 @@
 ---
-title: "‘2024 HackTheon Sejong’ International University Students’ Cyber Security Competition"
+title: "2024 HackTheon Sejong Competition"
 excerpt: "June 19, 2024(Wed) 10:00 a.m.-6:00 p.m. 💻"
 header:
 show_date: true
