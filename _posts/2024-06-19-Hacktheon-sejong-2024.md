@@ -1,6 +1,6 @@
 ---
 title: "2024 HackTheon Sejong Competition"
-excerpt: "June 19, 2024(Wed) 10:00 a.m.-6:00 p.m. 💻"
+excerpt: "June 19, 2024(Wed) 10:00 a.m.-6:00 p.m. 💻 Follow the vision “Talented people in cybersecurity are gathering together in Sejong”, HackTheon Sejong is an annual event started in 2022 with the aim to discover and nurture cybersecurity talents as well as promote the overall cybersecurity industry. The event is named by combining the three words “Hacker” + ”Pantheon” + ”Sejong”."
 header:
 show_date: true
 header:
@@ -45,22 +45,22 @@ Video of the final award ceremony
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image5.png)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image6.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image6.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image7.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image7.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image8.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image8.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image9.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image9.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image10.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image10.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image11.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image11.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image12.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image12.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image13.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image13.jpg)
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image14.png)
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image14.jpg)
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/images-ctf/2024-06-19-hackthensejong-2024/image15.png)
