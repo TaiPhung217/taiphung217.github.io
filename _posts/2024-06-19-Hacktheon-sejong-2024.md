@@ -1,6 +1,6 @@
 ---
 title: "2024 HackTheon Sejong Competition"
-excerpt: "June 19, 2024(Wed) 10:00 a.m.-6:00 p.m. 💻 Follow the vision “Talented people in cybersecurity are gathering together in Sejong”, HackTheon Sejong is an annual event started in 2022 with the aim to discover and nurture cybersecurity talents as well as promote the overall cybersecurity industry. The event is named by combining the three words “Hacker” + ”Pantheon” + ”Sejong”."
+excerpt: "June 19, 2024(Wed) 10:00 a.m.-6:00 p.m. 💻"
 header:
 show_date: true
 header:
