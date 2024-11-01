@@ -13,7 +13,7 @@ layout: archive
   {% endfor %}
 </div>
 
-<h3 class="archive__subtitle">Latest articles</h3>
+<h3 class="archive__subtitle">Bài viết khác</h3>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
@@ -21,10 +21,13 @@ layout: archive
   {% assign posts = site.posts %}
 {% endif %}
 
-<div class="entries-{{ entries_layout }}">
+<!-- Container cho phần bài viết khác -->
+<div class="entries-horizontal-scroll">
   {% for post in posts %}
     {% unless post.featured %}
-      {% include archive-single.html type=entries_layout %}
+      <div class="small-post">
+        {% include archive-single.html type="grid" %}
+      </div>
     {% endunless %}
   {% endfor %}
 </div>
