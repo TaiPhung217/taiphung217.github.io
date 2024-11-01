@@ -4,6 +4,15 @@ layout: archive
 
 {{ content }}
 
+<h3 class="archive__subtitle">Bài viết nổi bật</h3>
+
+{% assign featured_posts = site.posts | where: "featured", true %}
+<div class="entries-list featured-posts">
+  {% for post in featured_posts %}
+    {% include archive-single.html type="list" %}
+  {% endfor %}
+</div>
+
 <h3 class="archive__subtitle">Latest articles</h3>
 
 {% if paginator %}
@@ -12,12 +21,12 @@ layout: archive
   {% assign posts = site.posts %}
 {% endif %}
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
   {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
+    {% unless post.featured %}
+      {% include archive-single.html type=entries_layout %}
+    {% endunless %}
   {% endfor %}
 </div>
 
 {% include paginator.html %}
-

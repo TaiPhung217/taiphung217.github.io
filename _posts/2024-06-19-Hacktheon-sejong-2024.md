@@ -3,6 +3,7 @@ title: "2024 HackTheon Sejong Competition"
 excerpt: "June 19, 2024(Wed) 10:00 a.m.-6:00 p.m. 💻"
 header:
 show_date: true
+featured: true
 header:
   teaser: /assets/images/images-ctf/2024-06-19-hackthensejong-2024/teaser.png
   teaser_home_page: true
