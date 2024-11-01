@@ -4,32 +4,20 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">Bài viết nổi bật</h3>
-
-{% assign featured_posts = site.posts | where: "featured", true %}
-<div class="entries-list featured-posts">
-  {% for post in featured_posts %}
-    {% include archive-single.html type="list" %}
-  {% endfor %}
-</div>
-
-<!-- <h3 class="archive__subtitle">Latest articles</h3>
+<h3 class="archive__subtitle">Latest articles</h3>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
   {% assign posts = site.posts %}
-{% endif %} -->
+{% endif %}
 
-<!-- <div class="entries-{{ entries_layout }}">
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
   {% for post in posts %}
-    {% unless post.featured %}
-      {% include archive-single.html type=entries_layout %}
-    {% endunless %}
+    {% include archive-single.html type=entries_layout %}
   {% endfor %}
-</div> -->
+</div>
 
 {% include paginator.html %}
 
-
-{% include page__related.html posts=site.posts %}
